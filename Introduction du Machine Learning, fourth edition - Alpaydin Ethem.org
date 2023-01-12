@@ -1,10 +1,12 @@
-#+title: Introduction to Machine Learning. Fourth Edition - Alpaydin Ethem
+#+title: Introduction to Machine Learning, fourth Edition - Alpaydin Ethem
+#+startup: show3levels* entitiespretty
 
-* Introduction
+* Introduction du Machine Learning, fourth edition - Alpaydin Ethem
 :PROPERTIES:
-:NOTER_DOCUMENT: ../Introduction to Machine Learning 4ed 2020 - Alpaydin Ethem.pdf
-:NOTER_PAGE: 41
+:NOTER_DOCUMENT: Introduction du Machine Learning, fourth edition - Alpaydin Ethem.pdf
+:NOTER_PAGE: 29
 :END:
+
 ** Copyright
 :PROPERTIES:
 :NOTER_PAGE: (5 . 0.234848)
@@ -56,7 +58,8 @@
 :NOTER_PAGE: (33 . 0.280303)
 :END:
 
-Learning a probably P(Y|X, D) with Y a product conditionned on X and D a set of parameters pertaining to the domain. Ex: percentage of customers (with attributes in D) who buy chips (Y), when they buy beers (X).
+Learning a probably P(Y|X, D) with Y a product conditionned on X and D a set of parameters pertaining to the domain.
+For example find the percentage P of customers (with attributes such as age, gender, marital status, etc in D) who also buy chips (Y), when they buy beers (X).
 
 **** 1.2.2 Classification
 :PROPERTIES:
@@ -64,6 +67,7 @@ Learning a probably P(Y|X, D) with Y a product conditionned on X and D a set of 
 :END:
 
 Finding a ~discriminant~, a (discrete) function that can assign input to different classes. Can be used to make ~predictions~
+For example in /credit scoring/, based on customer data, the model classifies a customer into either of two classes: low-risk or high-risk. Also used in many application of ~pattern recognition~ (OCR, face recognition, medical diagnosis, speech recognition, machine translation, sentiment prediction)
 
 **** 1.2.3 Regression
 :PROPERTIES:
@@ -82,19 +86,24 @@ Y is a number in regression and a class code in classification. g minimises the 
 :NOTER_PAGE: (42 . 0.388258)
 :END:
 
-In unsupervised learning there's no supervisor and we only have input data.
+In unsupervised learning there's no supervisor and we only have input data. The goal here is to find the
+general patterns underlying the input data. What's regular and what's not. This is called ~density estimation~ in statistics.
+One method of density estimation is ~clustering~ where the model allocates inputs similar in their attributes to the same group (e.g. customer segmentation and document clustering). This also allows the identification of outliers.
 
 **** 1.2.5 Reinforcement Learning
 :PROPERTIES:
 :NOTER_PAGE: (43 . 0.433712)
 :END:
 
+In _reinforcement_ learning, the goal is to find a good sequence of actions, called a ~policy~ to achieve a goal where each action individually is not important, but is only good in so far as it contributes to a good policy. A good example is game playing.
 
 
 *** 1.3 History
 :PROPERTIES:
 :NOTER_PAGE: (44 . 0.592803)
 :END:
+
+Unlike psychology, neuroscience or cognitive science, ML is not concerned with understanding or reproducing how we learn but rather with building using systems.
 
 *** 1.4 Related Topics
 :PROPERTIES:
@@ -116,10 +125,15 @@ In unsupervised learning there's no supervisor and we only have input data.
 :NOTER_PAGE: (50 . 0.36553)
 :END:
 
+/Testing/ to verify correct generalization because the model is build based a relatively small sample of all the possible inputs.
+Sensitivity has to do with small pertubations of input (called ~adverserail examples~) causing big changes in output.
+
 **** 1.4.4 Data Science
 :PROPERTIES:
 :NOTER_PAGE: (51 . 0.479167)
 :END:
+
+Is composed of ML as its theoretical component, HPC as its engineering component and a third component about social aspects such as data privacy, legal and ethical implications of making automated decisions based on data.
 
 *** 1.5 Exercises
 :PROPERTIES:
@@ -2062,8 +2076,3 @@ In unsupervised learning there's no supervisor and we only have input data.
 :END:
 
 
-* Skeleton
-:PROPERTIES:
-:NOTER_DOCUMENT: ../Introduction to Machine Learning 4ed 2020 - Alpaydin Ethem.pdf
-:NOTER_PAGE: 34
-:END:
