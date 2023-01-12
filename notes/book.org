@@ -1,0 +1,2069 @@
+#+title: Introduction to Machine Learning. Fourth Edition - Alpaydin Ethem
+
+* Introduction
+:PROPERTIES:
+:NOTER_DOCUMENT: ../Introduction to Machine Learning 4ed 2020 - Alpaydin Ethem.pdf
+:NOTER_PAGE: 41
+:END:
+** Copyright
+:PROPERTIES:
+:NOTER_PAGE: (5 . 0.234848)
+:END:
+
+** Preface
+:PROPERTIES:
+:NOTER_PAGE: (21 . 0.206439)
+:END:
+
+** Notations
+:PROPERTIES:
+:NOTER_PAGE: (26 . 0.206439)
+:END:
+
+** 1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (29 . 0.206439)
+:END:
+
+*** 1.1 What Is Machine Learning?
+:PROPERTIES:
+:NOTER_PAGE: (29 . 0.324811)
+:END:
+
+- Learning to do tasks for which we don't have an algorithm.
+- Generic model with lots of parameter.
+- The model tunes its parameters to best match the training data.
+- Training data specialized model to the task underlying the data.
+- Specific, specialized instanciation of the generic model becomes the algorithm for the task.
+- Problems for which we don't have alrgorithms but we have data, lots of data
+- We ~mine~ that data to extract comparatively small bits of intelligent knowledge
+- Intelligent because can learn and adapt to changes
+- Model don't explain everything but the goal is to get a good approximation
+- Machine learning = programming computer to optimize a performance measure using data
+- ML models can be predictive or descriptive
+- Statistics suited because model based on inference from sample
+- Computer science two roles:
+    - training: efficient algorithm, storage and processing to find the model
+    - use: effecient representation and algorithmic inference based on model
+
+*** 1.2 Examples of Machine Learning Applications
+:PROPERTIES:
+:NOTER_PAGE: (33 . 0.229167)
+:END:
+
+**** 1.2.1 Association Rules
+:PROPERTIES:
+:NOTER_PAGE: (33 . 0.280303)
+:END:
+
+Learning a probably P(Y|X, D) with Y a product conditionned on X and D a set of parameters pertaining to the domain. Ex: percentage of customers (with attributes in D) who buy chips (Y), when they buy beers (X).
+
+**** 1.2.2 Classification
+:PROPERTIES:
+:NOTER_PAGE: (33 . 0.875947)
+:END:
+
+Finding a ~discriminant~, a (discrete) function that can assign input to different classes. Can be used to make ~predictions~
+
+**** 1.2.3 Regression
+:PROPERTIES:
+:NOTER_PAGE: (40 . 0.183712)
+:END:
+
+Produce a number based on inputs (find a continuous function)
+
+Classification and regression are example of ~supervised learning~ problems with a training containing an input =X= and an output =Y= whose values are provided by a ~supervisor~ and the task is to learn a mapping between the two
+
+y = g(x|\theta) where g is the model (the regression function or the discriminant) and \theta its parameters.
+Y is a number in regression and a class code in classification. g minimises the approximation error by otimizing \theta.
+
+**** 1.2.4 Unsupervised Learning
+:PROPERTIES:
+:NOTER_PAGE: (42 . 0.388258)
+:END:
+
+In unsupervised learning there's no supervisor and we only have input data.
+
+**** 1.2.5 Reinforcement Learning
+:PROPERTIES:
+:NOTER_PAGE: (43 . 0.433712)
+:END:
+
+
+
+*** 1.3 History
+:PROPERTIES:
+:NOTER_PAGE: (44 . 0.592803)
+:END:
+
+*** 1.4 Related Topics
+:PROPERTIES:
+:NOTER_PAGE: (47 . 0.683712)
+:END:
+
+**** 1.4.1 High-Performance Computing
+:PROPERTIES:
+:NOTER_PAGE: (47 . 0.734848)
+:END:
+
+**** 1.4.2 Data Privacy and Security
+:PROPERTIES:
+:NOTER_PAGE: (49 . 0.342803)
+:END:
+
+**** 1.4.3 Model Interpretability and Trust
+:PROPERTIES:
+:NOTER_PAGE: (50 . 0.36553)
+:END:
+
+**** 1.4.4 Data Science
+:PROPERTIES:
+:NOTER_PAGE: (51 . 0.479167)
+:END:
+
+*** 1.5 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (52 . 0.090909)
+:END:
+
+*** 1.6 References
+:PROPERTIES:
+:NOTER_PAGE: (55 . 0.357955)
+:END:
+
+** 2 Supervised Learning
+:PROPERTIES:
+:NOTER_PAGE: (57 . 0.206056)
+:END:
+
+*** 2.1 Learning a Class from Examples
+:PROPERTIES:
+:NOTER_PAGE: (57 . 0.427424)
+:END:
+
+*** 2.2 Vapnik-Chervonenkis Dimension
+:PROPERTIES:
+:NOTER_PAGE: (63 . 0.70324)
+:END:
+
+*** 2.3 Probably Approximately Correct Learning
+:PROPERTIES:
+:NOTER_PAGE: (65 . 0.285499)
+:END:
+
+*** 2.4 Noise
+:PROPERTIES:
+:NOTER_PAGE: (66 . 0.874622)
+:END:
+
+*** 2.5 Learning Multiple Classes
+:PROPERTIES:
+:NOTER_PAGE: (69 . 0.749657)
+:END:
+
+*** 2.6 Regression
+:PROPERTIES:
+:NOTER_PAGE: (71 . 0.867481)
+:END:
+
+*** 2.7 Model Selection and Generalization
+:PROPERTIES:
+:NOTER_PAGE: (75 . 0.178385)
+:END:
+
+*** 2.8 Dimensions of a Supervised Machine Learning Algorithm
+:PROPERTIES:
+:NOTER_PAGE: (79 . 0.294425)
+:END:
+
+*** 2.9 Notes
+:PROPERTIES:
+:NOTER_PAGE: (81 . 0.329235)
+:END:
+
+*** 2.10 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (82 . 0.45688)
+:END:
+
+*** 2.11 References
+:PROPERTIES:
+:NOTER_PAGE: (86 . 0.571134)
+:END:
+
+** 3 Bayesian Decision Theory
+:PROPERTIES:
+:NOTER_PAGE: (88 . 0.206484)
+:END:
+
+*** 3.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (88 . 0.462834)
+:END:
+
+*** 3.2 Classification
+:PROPERTIES:
+:NOTER_PAGE: (90 . 0.301203)
+:END:
+
+*** 3.3 Losses and Risks
+:PROPERTIES:
+:NOTER_PAGE: (92 . 0.709626)
+:END:
+
+*** 3.4 Discriminant Functions
+:PROPERTIES:
+:NOTER_PAGE: (95 . 0.155214)
+:END:
+
+*** 3.5 Association Rules
+:PROPERTIES:
+:NOTER_PAGE: (96 . 0.723529)
+:END:
+
+*** 3.6 Notes
+:PROPERTIES:
+:NOTER_PAGE: (99 . 0.541912)
+:END:
+
+*** 3.7 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (100 . 0.530616)
+:END:
+
+*** 3.8 References
+:PROPERTIES:
+:NOTER_PAGE: (105 . 0.685295)
+:END:
+
+** 4 Parametric Methods
+:PROPERTIES:
+:NOTER_PAGE: (107 . 0.205704)
+:END:
+
+*** 4.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (107 . 0.551969)
+:END:
+
+*** 4.2 Maximum Likelihood Estimation
+:PROPERTIES:
+:NOTER_PAGE: (108 . 0.37319)
+:END:
+
+**** 4.2.1 Bernoulli Density
+:PROPERTIES:
+:NOTER_PAGE: (109 . 0.44282)
+:END:
+
+**** 4.2.2 Multinomial Density
+:PROPERTIES:
+:NOTER_PAGE: (110 . 0.606543)
+:END:
+
+**** 4.2.3 Gaussian (Normal) Density
+:PROPERTIES:
+:NOTER_PAGE: (111 . 0.50304)
+:END:
+
+*** 4.3 Evaluating an Estimator: Bias and Variance
+:PROPERTIES:
+:NOTER_PAGE: (112 . 0.300738)
+:END:
+
+*** 4.4 The Bayes’ Estimator
+:PROPERTIES:
+:NOTER_PAGE: (114 . 0.580197)
+:END:
+
+*** 4.5 Parametric Classification
+:PROPERTIES:
+:NOTER_PAGE: (118 . 0.205703)
+:END:
+
+*** 4.6 Regression
+:PROPERTIES:
+:NOTER_PAGE: (122 . 0.621598)
+:END:
+
+*** 4.7 Tuning Model Complexity: Bias/Variance Dilemma
+:PROPERTIES:
+:NOTER_PAGE: (126 . 0.639476)
+:END:
+
+*** 4.8 Model Selection Procedures
+:PROPERTIES:
+:NOTER_PAGE: (130 . 0.688404)
+:END:
+
+*** 4.9 Notes
+:PROPERTIES:
+:NOTER_PAGE: (135 . 0.571728)
+:END:
+
+*** 4.10 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (136 . 0.836132)
+:END:
+
+*** 4.11 References
+:PROPERTIES:
+:NOTER_PAGE: (140 . 0.460698)
+:END:
+
+** 5 Multivariate Methods
+:PROPERTIES:
+:NOTER_PAGE: (142 . 0.206439)
+:END:
+
+*** 5.1 Multivariate Data
+:PROPERTIES:
+:NOTER_PAGE: (142 . 0.553977)
+:END:
+
+*** 5.2 Parameter Estimation
+:PROPERTIES:
+:NOTER_PAGE: (143 . 0.570076)
+:END:
+
+*** 5.3 Estimation of Missing Values
+:PROPERTIES:
+:NOTER_PAGE: (145 . 0.397727)
+:END:
+
+*** 5.4 Multivariate Normal Distribution
+:PROPERTIES:
+:NOTER_PAGE: (146 . 0.320076)
+:END:
+
+*** 5.5 Multivariate Classification
+:PROPERTIES:
+:NOTER_PAGE: (150 . 0.438447)
+:END:
+
+*** 5.6 Tuning Complexity
+:PROPERTIES:
+:NOTER_PAGE: (158 . 0.55303)
+:END:
+
+*** 5.7 Discrete Features
+:PROPERTIES:
+:NOTER_PAGE: (161 . 0.16572)
+:END:
+
+*** 5.8 Multivariate Regression
+:PROPERTIES:
+:NOTER_PAGE: (163 . 0.262311)
+:END:
+
+*** 5.9 Notes
+:PROPERTIES:
+:NOTER_PAGE: (165 . 0.34375)
+:END:
+
+*** 5.10 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (166 . 0.342804)
+:END:
+
+*** 5.11 References
+:PROPERTIES:
+:NOTER_PAGE: (169 . 0.090909)
+:END:
+
+** 6 Dimensionality Reduction
+:PROPERTIES:
+:NOTER_PAGE: (170 . 0.206439)
+:END:
+
+*** 6.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (170 . 0.53125)
+:END:
+
+*** 6.2 Subset Selection
+:PROPERTIES:
+:NOTER_PAGE: (172 . 0.251894)
+:END:
+
+*** 6.3 Principal Component Analysis
+:PROPERTIES:
+:NOTER_PAGE: (177 . 0.320076)
+:END:
+
+*** 6.4 Feature Embedding
+:PROPERTIES:
+:NOTER_PAGE: (186 . 0.389205)
+:END:
+
+*** 6.5 Factor Analysis
+:PROPERTIES:
+:NOTER_PAGE: (189 . 0.349432)
+:END:
+
+*** 6.6 Singular Value Decomposition and Matrix Factorization
+:PROPERTIES:
+:NOTER_PAGE: (196 . 0.160985)
+:END:
+
+*** 6.7 Multidimensional Scaling
+:PROPERTIES:
+:NOTER_PAGE: (198 . 0.206439)
+:END:
+
+*** 6.8 Linear Discriminant Analysis
+:PROPERTIES:
+:NOTER_PAGE: (202 . 0.79072)
+:END:
+
+*** 6.9 Canonical Correlation Analysis
+:PROPERTIES:
+:NOTER_PAGE: (209 . 0.302083)
+:END:
+
+*** 6.10 Isomap
+:PROPERTIES:
+:NOTER_PAGE: (212 . 0.642992)
+:END:
+
+*** 6.11 Locally Linear Embedding
+:PROPERTIES:
+:NOTER_PAGE: (215 . 0.297348)
+:END:
+
+*** 6.12 Laplacian Eigenmaps
+:PROPERTIES:
+:NOTER_PAGE: (219 . 0.295455)
+:END:
+
+*** 6.13 t-Distributed Stochastic Neighbor Embedding
+:PROPERTIES:
+:NOTER_PAGE: (222 . 0.470644)
+:END:
+
+*** 6.14 Notes
+:PROPERTIES:
+:NOTER_PAGE: (224 . 0.637311)
+:END:
+
+*** 6.15 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (227 . 0.183712)
+:END:
+
+*** 6.16 References
+:PROPERTIES:
+:NOTER_PAGE: (229 . 0.574811)
+:END:
+
+** 7 Clustering
+:PROPERTIES:
+:NOTER_PAGE: (233 . 0.206439)
+:END:
+
+*** 7.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (233 . 0.553977)
+:END:
+
+*** 7.2 Mixture Densities
+:PROPERTIES:
+:NOTER_PAGE: (234 . 0.820076)
+:END:
+
+*** 7.3 k-Means Clustering
+:PROPERTIES:
+:NOTER_PAGE: (236 . 0.519887)
+:END:
+
+*** 7.4 Expectation-Maximization Algorithm
+:PROPERTIES:
+:NOTER_PAGE: (241 . 0.66572)
+:END:
+
+*** 7.5 Mixtures of Latent Variable Models
+:PROPERTIES:
+:NOTER_PAGE: (247 . 0.829545)
+:END:
+
+*** 7.6 Supervised Learning after Clustering
+:PROPERTIES:
+:NOTER_PAGE: (248 . 0.851326)
+:END:
+
+*** 7.7 Spectral Clustering
+:PROPERTIES:
+:NOTER_PAGE: (251 . 0.160985)
+:END:
+
+*** 7.8 Hierarchical Clustering
+:PROPERTIES:
+:NOTER_PAGE: (253 . 0.36553)
+:END:
+
+*** 7.9 Choosing the Number of Clusters
+:PROPERTIES:
+:NOTER_PAGE: (256 . 0.090909)
+:END:
+
+*** 7.10 Notes
+:PROPERTIES:
+:NOTER_PAGE: (256 . 0.868371)
+:END:
+
+*** 7.11 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (258 . 0.090909)
+:END:
+
+*** 7.12 References
+:PROPERTIES:
+:NOTER_PAGE: (261 . 0.160985)
+:END:
+
+** 8 Nonparametric Methods
+:PROPERTIES:
+:NOTER_PAGE: (264 . 0.206439)
+:END:
+
+*** 8.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (264 . 0.576705)
+:END:
+
+*** 8.2 Nonparametric Density Estimation
+:PROPERTIES:
+:NOTER_PAGE: (266 . 0.402462)
+:END:
+
+**** 8.2.1 Histogram Estimator
+:PROPERTIES:
+:NOTER_PAGE: (267 . 0.235796)
+:END:
+
+**** 8.2.2 Kernel Estimator
+:PROPERTIES:
+:NOTER_PAGE: (269 . 0.167614)
+:END:
+
+**** 8.2.3 k-Nearest Neighbor Estimator
+:PROPERTIES:
+:NOTER_PAGE: (271 . 0.581439)
+:END:
+
+*** 8.3 Generalization to Multivariate Data
+:PROPERTIES:
+:NOTER_PAGE: (273 . 0.355114)
+:END:
+
+*** 8.4 Nonparametric Classification
+:PROPERTIES:
+:NOTER_PAGE: (274 . 0.386364)
+:END:
+
+*** 8.5 Condensed Nearest Neighbor
+:PROPERTIES:
+:NOTER_PAGE: (276 . 0.560607)
+:END:
+
+*** 8.6 Distance-Based Classification
+:PROPERTIES:
+:NOTER_PAGE: (278 . 0.206439)
+:END:
+
+*** 8.7 Outlier Detection
+:PROPERTIES:
+:NOTER_PAGE: (282 . 0.090909)
+:END:
+
+*** 8.8 Nonparametric Regression: Smoothing Models
+:PROPERTIES:
+:NOTER_PAGE: (284 . 0.355114)
+:END:
+
+**** 8.8.1 Running Mean Smoother
+:PROPERTIES:
+:NOTER_PAGE: (285 . 0.090909)
+:END:
+
+**** 8.8.2 Kernel Smoother
+:PROPERTIES:
+:NOTER_PAGE: (288 . 0.592804)
+:END:
+
+**** 8.8.3 Running Line Smoother
+:PROPERTIES:
+:NOTER_PAGE: (289 . 0.517992)
+:END:
+
+*** 8.9 How to Choose the Smoothing Parameter
+:PROPERTIES:
+:NOTER_PAGE: (289 . 0.811553)
+:END:
+
+*** 8.10 Notes
+:PROPERTIES:
+:NOTER_PAGE: (290 . 0.825758)
+:END:
+
+*** 8.11 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (294 . 0.229167)
+:END:
+
+*** 8.12 References
+:PROPERTIES:
+:NOTER_PAGE: (297 . 0.710227)
+:END:
+
+** 9 Decision Trees
+:PROPERTIES:
+:NOTER_PAGE: (301 . 0.206439)
+:END:
+
+*** 9.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (301 . 0.53125)
+:END:
+
+*** 9.2 Univariate Trees
+:PROPERTIES:
+:NOTER_PAGE: (303 . 0.861742)
+:END:
+
+**** 9.2.1 Classification Trees
+:PROPERTIES:
+:NOTER_PAGE: (305 . 0.160985)
+:END:
+
+**** 9.2.2 Regression Trees
+:PROPERTIES:
+:NOTER_PAGE: (310 . 0.438447)
+:END:
+
+*** 9.3 Pruning
+:PROPERTIES:
+:NOTER_PAGE: (312 . 0.614583)
+:END:
+
+*** 9.4 Rule Extraction from Trees
+:PROPERTIES:
+:NOTER_PAGE: (316 . 0.456439)
+:END:
+
+*** 9.5 Learning Rules from Data
+:PROPERTIES:
+:NOTER_PAGE: (318 . 0.282197)
+:END:
+
+*** 9.6 Multivariate Trees
+:PROPERTIES:
+:NOTER_PAGE: (322 . 0.691288)
+:END:
+
+*** 9.7 Notes
+:PROPERTIES:
+:NOTER_PAGE: (325 . 0.706441)
+:END:
+
+*** 9.8 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (329 . 0.090909)
+:END:
+
+*** 9.9 References
+:PROPERTIES:
+:NOTER_PAGE: (331 . 0.732008)
+:END:
+
+** 10 Linear Discrimination
+:PROPERTIES:
+:NOTER_PAGE: (334 . 0.206094)
+:END:
+
+*** 10.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (334 . 0.460813)
+:END:
+
+*** 10.2 Generalizing the Linear Model
+:PROPERTIES:
+:NOTER_PAGE: (336 . 0.836335)
+:END:
+
+*** 10.3 Geometry of the Linear Discriminant
+:PROPERTIES:
+:NOTER_PAGE: (338 . 0.419608)
+:END:
+
+**** 10.3.1 Two Classes
+:PROPERTIES:
+:NOTER_PAGE: (338 . 0.469241)
+:END:
+
+**** 10.3.2 Multiple Classes
+:PROPERTIES:
+:NOTER_PAGE: (341 . 0.253854)
+:END:
+
+*** 10.4 Pairwise Separation
+:PROPERTIES:
+:NOTER_PAGE: (343 . 0.601283)
+:END:
+
+*** 10.5 Parametric Discrimination Revisited
+:PROPERTIES:
+:NOTER_PAGE: (344 . 0.723959)
+:END:
+
+*** 10.6 Gradient Descent
+:PROPERTIES:
+:NOTER_PAGE: (346 . 0.537602)
+:END:
+
+*** 10.7 Logistic Discrimination
+:PROPERTIES:
+:NOTER_PAGE: (348 . 0.609711)
+:END:
+
+**** 10.7.1 Two Classes
+:PROPERTIES:
+:NOTER_PAGE: (348 . 0.660279)
+:END:
+
+**** 10.7.2 Multiple Classes
+:PROPERTIES:
+:NOTER_PAGE: (352 . 0.800749)
+:END:
+
+**** 10.7.3 Multiple Labels
+:PROPERTIES:
+:NOTER_PAGE: (360 . 0.227633)
+:END:
+
+*** 10.8 Learning to Rank
+:PROPERTIES:
+:NOTER_PAGE: (361 . 0.227633)
+:END:
+
+*** 10.9 Notes
+:PROPERTIES:
+:NOTER_PAGE: (363 . 0.677138)
+:END:
+
+*** 10.10 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (365 . 0.384957)
+:END:
+
+*** 10.11 References
+:PROPERTIES:
+:NOTER_PAGE: (369 . 0.090909)
+:END:
+
+** 11 Multilayer Perceptrons
+:PROPERTIES:
+:NOTER_PAGE: (370 . 0.206439)
+:END:
+
+*** 11.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (370 . 0.508523)
+:END:
+
+**** 11.1.1 Understanding the Brain
+:PROPERTIES:
+:NOTER_PAGE: (371 . 0.560606)
+:END:
+
+**** 11.1.2 Neural Networks as a Paradigm for Parallel Processing
+:PROPERTIES:
+:NOTER_PAGE: (373 . 0.61553)
+:END:
+
+*** 11.2 The Perceptron
+:PROPERTIES:
+:NOTER_PAGE: (376 . 0.251894)
+:END:
+
+*** 11.3 Training a Perceptron
+:PROPERTIES:
+:NOTER_PAGE: (380 . 0.479167)
+:END:
+
+*** 11.4 Learning Boolean Functions
+:PROPERTIES:
+:NOTER_PAGE: (384 . 0.555871)
+:END:
+
+*** 11.5 Multilayer Perceptrons
+:PROPERTIES:
+:NOTER_PAGE: (386 . 0.640152)
+:END:
+
+*** 11.6 MLP as a Universal Approximator
+:PROPERTIES:
+:NOTER_PAGE: (390 . 0.447917)
+:END:
+
+*** 11.7 Backpropagation Algorithm
+:PROPERTIES:
+:NOTER_PAGE: (393 . 0.342803)
+:END:
+
+**** 11.7.1 Nonlinear Regression
+:PROPERTIES:
+:NOTER_PAGE: (393 . 0.745265)
+:END:
+
+**** 11.7.2 Two-Class Discrimination
+:PROPERTIES:
+:NOTER_PAGE: (397 . 0.609848)
+:END:
+
+**** 11.7.3 Multiclass Discrimination
+:PROPERTIES:
+:NOTER_PAGE: (398 . 0.791667)
+:END:
+
+**** 11.7.4 Multilabel Discrimination
+:PROPERTIES:
+:NOTER_PAGE: (401 . 0.183712)
+:END:
+
+*** 11.8 Overtraining
+:PROPERTIES:
+:NOTER_PAGE: (402 . 0.398674)
+:END:
+
+*** 11.9 Learning Hidden Representations
+:PROPERTIES:
+:NOTER_PAGE: (403 . 0.592803)
+:END:
+
+*** 11.10 Autoencoders
+:PROPERTIES:
+:NOTER_PAGE: (410 . 0.53125)
+:END:
+
+*** 11.11 Word2vec Architecture
+:PROPERTIES:
+:NOTER_PAGE: (413 . 0.399621)
+:END:
+
+*** 11.12 Notes
+:PROPERTIES:
+:NOTER_PAGE: (418 . 0.584283)
+:END:
+
+*** 11.13 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (420 . 0.729167)
+:END:
+
+*** 11.14 References
+:PROPERTIES:
+:NOTER_PAGE: (422 . 0.607955)
+:END:
+
+** 12 Deep Learning
+:PROPERTIES:
+:NOTER_PAGE: (426 . 0.206439)
+:END:
+
+*** 12.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (426 . 0.485795)
+:END:
+
+*** 12.2 How to Train Multiple Hidden Layers
+:PROPERTIES:
+:NOTER_PAGE: (431 . 0.183712)
+:END:
+
+**** 12.2.1 Rectified Linear Unit
+:PROPERTIES:
+:NOTER_PAGE: (431 . 0.234848)
+:END:
+
+**** 12.2.2 Initialization
+:PROPERTIES:
+:NOTER_PAGE: (432 . 0.324811)
+:END:
+
+**** 12.2.3 Generalizing Backpropagation to Multiple Hidden Layers
+:PROPERTIES:
+:NOTER_PAGE: (432 . 0.732008)
+:END:
+
+*** 12.3 Improving Training Convergence
+:PROPERTIES:
+:NOTER_PAGE: (436 . 0.611742)
+:END:
+
+**** 12.3.1 Momentum
+:PROPERTIES:
+:NOTER_PAGE: (437 . 0.160985)
+:END:
+
+**** 12.3.2 Adaptive Learning Factor
+:PROPERTIES:
+:NOTER_PAGE: (437 . 0.74053)
+:END:
+
+**** 12.3.3 Batch Normalization
+:PROPERTIES:
+:NOTER_PAGE: (439 . 0.713068)
+:END:
+
+*** 12.4 Regularization
+:PROPERTIES:
+:NOTER_PAGE: (441 . 0.675189)
+:END:
+
+**** 12.4.1 Hints
+:PROPERTIES:
+:NOTER_PAGE: (442 . 0.388258)
+:END:
+
+**** 12.4.2 Weight Decay
+:PROPERTIES:
+:NOTER_PAGE: (444 . 0.685606)
+:END:
+
+**** 12.4.3 Dropout
+:PROPERTIES:
+:NOTER_PAGE: (448 . 0.324811)
+:END:
+
+*** 12.5 Convolutional Layers
+:PROPERTIES:
+:NOTER_PAGE: (449 . 0.836174)
+:END:
+
+**** 12.5.1 The Idea
+:PROPERTIES:
+:NOTER_PAGE: (450 . 0.090909)
+:END:
+
+**** 12.5.2 Formalization
+:PROPERTIES:
+:NOTER_PAGE: (452 . 0.518939)
+:END:
+
+**** 12.5.3 Examples: LeNet-5 and AlexNet
+:PROPERTIES:
+:NOTER_PAGE: (456 . 0.832386)
+:END:
+
+**** 12.5.4 Extensions
+:PROPERTIES:
+:NOTER_PAGE: (458 . 0.410985)
+:END:
+
+**** 12.5.5 Multimodal Deep Networks
+:PROPERTIES:
+:NOTER_PAGE: (460 . 0.36553)
+:END:
+
+*** 12.6 Tuning the Network Structure
+:PROPERTIES:
+:NOTER_PAGE: (461 . 0.456439)
+:END:
+
+**** 12.6.1 Structure and Hyperparameter Search
+:PROPERTIES:
+:NOTER_PAGE: (461 . 0.507576)
+:END:
+
+**** 12.6.2 Skip Connections
+:PROPERTIES:
+:NOTER_PAGE: (463 . 0.797348)
+:END:
+
+**** 12.6.3 Gating Units
+:PROPERTIES:
+:NOTER_PAGE: (465 . 0.36553)
+:END:
+
+*** 12.7 Learning Sequences
+:PROPERTIES:
+:NOTER_PAGE: (466 . 0.160985)
+:END:
+
+**** 12.7.1 Example Tasks
+:PROPERTIES:
+:NOTER_PAGE: (466 . 0.212121)
+:END:
+
+**** 12.7.2 Time-Delay Neural Networks
+:PROPERTIES:
+:NOTER_PAGE: (467 . 0.471591)
+:END:
+
+**** 12.7.3 Recurrent Networks
+:PROPERTIES:
+:NOTER_PAGE: (467 . 0.787879)
+:END:
+
+**** 12.7.4 Long Short-Term Memory Unit
+:PROPERTIES:
+:NOTER_PAGE: (470 . 0.730114)
+:END:
+
+**** 12.7.5 Gated Recurrent Unit
+:PROPERTIES:
+:NOTER_PAGE: (473 . 0.090909)
+:END:
+
+*** 12.8 Generative Adversarial Network
+:PROPERTIES:
+:NOTER_PAGE: (473 . 0.838068)
+:END:
+
+*** 12.9 Notes
+:PROPERTIES:
+:NOTER_PAGE: (477 . 0.479167)
+:END:
+
+*** 12.10 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (479 . 0.388258)
+:END:
+
+*** 12.11 References
+:PROPERTIES:
+:NOTER_PAGE: (481 . 0.691288)
+:END:
+
+** 13 Local Models
+:PROPERTIES:
+:NOTER_PAGE: (487 . 0.206439)
+:END:
+
+*** 13.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (487 . 0.53125)
+:END:
+
+*** 13.2 Competitive Learning
+:PROPERTIES:
+:NOTER_PAGE: (488 . 0.160985)
+:END:
+
+**** 13.2.1 Online k-Means
+:PROPERTIES:
+:NOTER_PAGE: (489 . 0.160985)
+:END:
+
+**** 13.2.2 Adaptive Resonance Theory
+:PROPERTIES:
+:NOTER_PAGE: (495 . 0.754735)
+:END:
+
+**** 13.2.3 Self-Organizing Maps
+:PROPERTIES:
+:NOTER_PAGE: (496 . 0.749053)
+:END:
+
+*** 13.3 Radial Basis Functions
+:PROPERTIES:
+:NOTER_PAGE: (499 . 0.183712)
+:END:
+
+*** 13.4 Incorporating Rule-Based Knowledge
+:PROPERTIES:
+:NOTER_PAGE: (507 . 0.75947)
+:END:
+
+*** 13.5 Normalized Basis Functions
+:PROPERTIES:
+:NOTER_PAGE: (509 . 0.470644)
+:END:
+
+*** 13.6 Competitive Basis Functions
+:PROPERTIES:
+:NOTER_PAGE: (511 . 0.48485)
+:END:
+
+*** 13.7 Learning Vector Quantization
+:PROPERTIES:
+:NOTER_PAGE: (514 . 0.789773)
+:END:
+
+*** 13.8 The Mixture of Experts
+:PROPERTIES:
+:NOTER_PAGE: (515 . 0.511364)
+:END:
+
+**** 13.8.1 Cooperative Experts
+:PROPERTIES:
+:NOTER_PAGE: (518 . 0.700758)
+:END:
+
+**** 13.8.2 Competitive Experts
+:PROPERTIES:
+:NOTER_PAGE: (519 . 0.604167)
+:END:
+
+*** 13.9 Hierarchical Mixture of Experts and Soft Decision Trees
+:PROPERTIES:
+:NOTER_PAGE: (520 . 0.579545)
+:END:
+
+*** 13.10 Notes
+:PROPERTIES:
+:NOTER_PAGE: (522 . 0.625947)
+:END:
+
+*** 13.11 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (524 . 0.090909)
+:END:
+
+*** 13.12 References
+:PROPERTIES:
+:NOTER_PAGE: (527 . 0.636364)
+:END:
+
+** 14 Kernel Machines
+:PROPERTIES:
+:NOTER_PAGE: (531 . 0.206439)
+:END:
+
+*** 14.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (531 . 0.508523)
+:END:
+
+*** 14.2 Optimal Separating Hyperplane
+:PROPERTIES:
+:NOTER_PAGE: (533 . 0.617424)
+:END:
+
+*** 14.3 The Nonseparable Case: Soft Margin Hyperplane
+:PROPERTIES:
+:NOTER_PAGE: (538 . 0.772727)
+:END:
+
+*** 14.4 ν-SVM
+:PROPERTIES:
+:NOTER_PAGE: (543 . 0.572917)
+:END:
+
+*** 14.5 Kernel Trick
+:PROPERTIES:
+:NOTER_PAGE: (544 . 0.4375)
+:END:
+
+*** 14.6 Vectorial Kernels
+:PROPERTIES:
+:NOTER_PAGE: (547 . 0.206439)
+:END:
+
+*** 14.7 Defining Kernels
+:PROPERTIES:
+:NOTER_PAGE: (550 . 0.25947)
+:END:
+
+*** 14.8 Multiple Kernel Learning
+:PROPERTIES:
+:NOTER_PAGE: (552 . 0.303977)
+:END:
+
+*** 14.9 Multiclass Kernel Machines
+:PROPERTIES:
+:NOTER_PAGE: (554 . 0.410985)
+:END:
+
+*** 14.10 Kernel Machines for Regression
+:PROPERTIES:
+:NOTER_PAGE: (556 . 0.297348)
+:END:
+
+*** 14.11 Kernel Machines for Ranking
+:PROPERTIES:
+:NOTER_PAGE: (562 . 0.568182)
+:END:
+
+*** 14.12 One-Class Kernel Machines
+:PROPERTIES:
+:NOTER_PAGE: (564 . 0.439394)
+:END:
+
+*** 14.13 Large Margin Nearest Neighbor Classifier
+:PROPERTIES:
+:NOTER_PAGE: (568 . 0.339015)
+:END:
+
+*** 14.14 Kernel Dimensionality Reduction
+:PROPERTIES:
+:NOTER_PAGE: (570 . 0.320076)
+:END:
+
+*** 14.15 Notes
+:PROPERTIES:
+:NOTER_PAGE: (572 . 0.229167)
+:END:
+
+*** 14.16 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (573 . 0.501894)
+:END:
+
+*** 14.17 References
+:PROPERTIES:
+:NOTER_PAGE: (576 . 0.160985)
+:END:
+
+** 15 Graphical Models
+:PROPERTIES:
+:NOTER_PAGE: (580 . 0.206439)
+:END:
+
+*** 15.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (580 . 0.53125)
+:END:
+
+*** 15.2 Canonical Cases for Conditional Independence
+:PROPERTIES:
+:NOTER_PAGE: (582 . 0.819129)
+:END:
+
+*** 15.3 Generative Models
+:PROPERTIES:
+:NOTER_PAGE: (591 . 0.842803)
+:END:
+
+*** 15.4 d-Separation
+:PROPERTIES:
+:NOTER_PAGE: (594 . 0.736742)
+:END:
+
+*** 15.5 Belief Propagation
+:PROPERTIES:
+:NOTER_PAGE: (595 . 0.535038)
+:END:
+
+**** 15.5.1 Chains
+:PROPERTIES:
+:NOTER_PAGE: (596 . 0.592803)
+:END:
+
+**** 15.5.2 Trees
+:PROPERTIES:
+:NOTER_PAGE: (598 . 0.568182)
+:END:
+
+**** 15.5.3 Polytrees
+:PROPERTIES:
+:NOTER_PAGE: (601 . 0.638258)
+:END:
+
+**** 15.5.4 Junction Trees
+:PROPERTIES:
+:NOTER_PAGE: (603 . 0.871212)
+:END:
+
+*** 15.6 Undirected Graphs: Markov Random Fields
+:PROPERTIES:
+:NOTER_PAGE: (604 . 0.785039)
+:END:
+
+*** 15.7 Learning the Structure of a Graphical Model
+:PROPERTIES:
+:NOTER_PAGE: (609 . 0.090909)
+:END:
+
+*** 15.8 Influence Diagrams
+:PROPERTIES:
+:NOTER_PAGE: (610 . 0.251894)
+:END:
+
+*** 15.9 Notes
+:PROPERTIES:
+:NOTER_PAGE: (610 . 0.732008)
+:END:
+
+*** 15.10 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (612 . 0.456439)
+:END:
+
+*** 15.11 References
+:PROPERTIES:
+:NOTER_PAGE: (615 . 0.477273)
+:END:
+
+** 16 Hidden Markov Models
+:PROPERTIES:
+:NOTER_PAGE: (618 . 0.206502)
+:END:
+
+*** 16.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (618 . 0.4793)
+:END:
+
+*** 16.2 Discrete Markov Processes
+:PROPERTIES:
+:NOTER_PAGE: (619 . 0.203727)
+:END:
+
+*** 16.3 Hidden Markov Models
+:PROPERTIES:
+:NOTER_PAGE: (622 . 0.733604)
+:END:
+
+*** 16.4 Three Basic Problems of HMMs
+:PROPERTIES:
+:NOTER_PAGE: (625 . 0.446934)
+:END:
+
+*** 16.5 Evaluation Problem
+:PROPERTIES:
+:NOTER_PAGE: (626 . 0.137146)
+:END:
+
+*** 16.6 Finding the State Sequence
+:PROPERTIES:
+:NOTER_PAGE: (630 . 0.29805)
+:END:
+
+*** 16.7 Learning Model Parameters
+:PROPERTIES:
+:NOTER_PAGE: (632 . 0.605065)
+:END:
+
+*** 16.8 Continuous Observations
+:PROPERTIES:
+:NOTER_PAGE: (635 . 0.53201)
+:END:
+
+*** 16.9 The HMM as a Graphical Model
+:PROPERTIES:
+:NOTER_PAGE: (636 . 0.801109)
+:END:
+
+*** 16.10 Model Selection in HMMs
+:PROPERTIES:
+:NOTER_PAGE: (641 . 0.090909)
+:END:
+
+*** 16.11 Notes
+:PROPERTIES:
+:NOTER_PAGE: (643 . 0.581023)
+:END:
+
+*** 16.12 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (645 . 0.854747)
+:END:
+
+*** 16.13 References
+:PROPERTIES:
+:NOTER_PAGE: (649 . 0.159342)
+:END:
+
+** 17 Bayesian Estimation
+:PROPERTIES:
+:NOTER_PAGE: (651 . 0.206439)
+:END:
+
+*** 17.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (651 . 0.553977)
+:END:
+
+*** 17.2 Bayesian Estimation of the Parameters of a Discrete Distribution
+:PROPERTIES:
+:NOTER_PAGE: (656 . 0.729167)
+:END:
+
+**** 17.2.1 K > 2 States: Dirichlet Distribution
+:PROPERTIES:
+:NOTER_PAGE: (656 . 0.805871)
+:END:
+
+**** 17.2.2 K = 2 States: Beta Distribution
+:PROPERTIES:
+:NOTER_PAGE: (658 . 0.751894)
+:END:
+
+*** 17.3 Bayesian Estimation of the Parameters of a Gaussian Distribution
+:PROPERTIES:
+:NOTER_PAGE: (660 . 0.090909)
+:END:
+
+**** 17.3.1 Univariate Case: Unknown Mean, Known Variance
+:PROPERTIES:
+:NOTER_PAGE: (660 . 0.166667)
+:END:
+
+**** 17.3.2 Univariate Case: Unknown Mean, Unknown Variance
+:PROPERTIES:
+:NOTER_PAGE: (662 . 0.668561)
+:END:
+
+**** 17.3.3 Multivariate Case: Unknown Mean, Unknown Covariance
+:PROPERTIES:
+:NOTER_PAGE: (665 . 0.090909)
+:END:
+
+*** 17.4 Bayesian Estimation of the Parameters of a Function
+:PROPERTIES:
+:NOTER_PAGE: (666 . 0.488636)
+:END:
+
+**** 17.4.1 Regression
+:PROPERTIES:
+:NOTER_PAGE: (666 . 0.744318)
+:END:
+
+**** 17.4.2 Regression with Prior on Noise Precision
+:PROPERTIES:
+:NOTER_PAGE: (671 . 0.846591)
+:END:
+
+**** 17.4.3 The Use of Basis/Kernel Functions
+:PROPERTIES:
+:NOTER_PAGE: (673 . 0.297348)
+:END:
+
+**** 17.4.4 Bayesian Classification
+:PROPERTIES:
+:NOTER_PAGE: (676 . 0.090909)
+:END:
+
+*** 17.5 Choosing a Prior
+:PROPERTIES:
+:NOTER_PAGE: (679 . 0.090909)
+:END:
+
+*** 17.6 Bayesian Model Comparison
+:PROPERTIES:
+:NOTER_PAGE: (680 . 0.27178)
+:END:
+
+*** 17.7 Bayesian Estimation of a Mixture Model
+:PROPERTIES:
+:NOTER_PAGE: (684 . 0.274621)
+:END:
+
+*** 17.8 Nonparametric Bayesian Modeling
+:PROPERTIES:
+:NOTER_PAGE: (688 . 0.160985)
+:END:
+
+*** 17.9 Gaussian Processes
+:PROPERTIES:
+:NOTER_PAGE: (689 . 0.160985)
+:END:
+
+*** 17.10 Dirichlet Processes and Chinese Restaurants
+:PROPERTIES:
+:NOTER_PAGE: (694 . 0.090909)
+:END:
+
+*** 17.11 Latent Dirichlet Allocation
+:PROPERTIES:
+:NOTER_PAGE: (696 . 0.447917)
+:END:
+
+*** 17.12 Beta Processes and Indian Buffets
+:PROPERTIES:
+:NOTER_PAGE: (698 . 0.797348)
+:END:
+
+*** 17.13 Notes
+:PROPERTIES:
+:NOTER_PAGE: (700 . 0.483902)
+:END:
+
+*** 17.14 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (701 . 0.410985)
+:END:
+
+*** 17.15 References
+:PROPERTIES:
+:NOTER_PAGE: (703 . 0.090909)
+:END:
+
+** 18 Combining Multiple Learners
+:PROPERTIES:
+:NOTER_PAGE: (705 . 0.206439)
+:END:
+
+*** 18.1 Rationale
+:PROPERTIES:
+:NOTER_PAGE: (705 . 0.485795)
+:END:
+
+*** 18.2 Generating Diverse Learners
+:PROPERTIES:
+:NOTER_PAGE: (706 . 0.625947)
+:END:
+
+*** 18.3 Model Combination Schemes
+:PROPERTIES:
+:NOTER_PAGE: (710 . 0.320076)
+:END:
+
+*** 18.4 Voting
+:PROPERTIES:
+:NOTER_PAGE: (712 . 0.654356)
+:END:
+
+*** 18.5 Error-Correcting Output Codes
+:PROPERTIES:
+:NOTER_PAGE: (716 . 0.844697)
+:END:
+
+*** 18.6 Bagging
+:PROPERTIES:
+:NOTER_PAGE: (720 . 0.324811)
+:END:
+
+*** 18.7 Boosting
+:PROPERTIES:
+:NOTER_PAGE: (721 . 0.347538)
+:END:
+
+*** 18.8 The Mixture of Experts Revisited
+:PROPERTIES:
+:NOTER_PAGE: (724 . 0.756629)
+:END:
+
+*** 18.9 Stacked Generalization
+:PROPERTIES:
+:NOTER_PAGE: (726 . 0.808712)
+:END:
+
+*** 18.10 Fine-Tuning an Ensemble
+:PROPERTIES:
+:NOTER_PAGE: (728 . 0.591856)
+:END:
+
+**** 18.10.1 Choosing a Subset of the Ensemble
+:PROPERTIES:
+:NOTER_PAGE: (729 . 0.342804)
+:END:
+
+**** 18.10.2 Constructing Metalearners
+:PROPERTIES:
+:NOTER_PAGE: (729 . 0.863638)
+:END:
+
+*** 18.11 Cascading
+:PROPERTIES:
+:NOTER_PAGE: (731 . 0.090909)
+:END:
+
+*** 18.12 Notes
+:PROPERTIES:
+:NOTER_PAGE: (733 . 0.433712)
+:END:
+
+*** 18.13 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (736 . 0.547348)
+:END:
+
+*** 18.14 References
+:PROPERTIES:
+:NOTER_PAGE: (739 . 0.090909)
+:END:
+
+** 19 Reinforcement Learning
+:PROPERTIES:
+:NOTER_PAGE: (743 . 0.20607)
+:END:
+
+*** 19.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (743 . 0.485478)
+:END:
+
+*** 19.2 Single State Case: K-Armed Bandit
+:PROPERTIES:
+:NOTER_PAGE: (746 . 0.455272)
+:END:
+
+*** 19.3 Elements of Reinforcement Learning
+:PROPERTIES:
+:NOTER_PAGE: (748 . 0.20607)
+:END:
+
+*** 19.4 Model-Based Learning
+:PROPERTIES:
+:NOTER_PAGE: (751 . 0.588368)
+:END:
+
+**** 19.4.1 Value Iteration
+:PROPERTIES:
+:NOTER_PAGE: (752 . 0.1702)
+:END:
+
+**** 19.4.2 Policy Iteration
+:PROPERTIES:
+:NOTER_PAGE: (753 . 0.090909)
+:END:
+
+*** 19.5 Temporal Difference Learning
+:PROPERTIES:
+:NOTER_PAGE: (753 . 0.420345)
+:END:
+
+**** 19.5.1 Exploration Strategies
+:PROPERTIES:
+:NOTER_PAGE: (754 . 0.160761)
+:END:
+
+**** 19.5.2 Deterministic Rewards and Actions
+:PROPERTIES:
+:NOTER_PAGE: (754 . 0.824353)
+:END:
+
+**** 19.5.3 Nondeterministic Rewards and Actions
+:PROPERTIES:
+:NOTER_PAGE: (757 . 0.090909)
+:END:
+
+**** 19.5.4 Eligibility Traces
+:PROPERTIES:
+:NOTER_PAGE: (760 . 0.090909)
+:END:
+
+*** 19.6 Generalization
+:PROPERTIES:
+:NOTER_PAGE: (761 . 0.737511)
+:END:
+
+*** 19.7 Partially Observable States
+:PROPERTIES:
+:NOTER_PAGE: (765 . 0.090909)
+:END:
+
+**** 19.7.1 The Setting
+:PROPERTIES:
+:NOTER_PAGE: (765 . 0.140938)
+:END:
+
+**** 19.7.2 Example: The Tiger Problem
+:PROPERTIES:
+:NOTER_PAGE: (767 . 0.377868)
+:END:
+
+*** 19.8 Deep Q Learning
+:PROPERTIES:
+:NOTER_PAGE: (773 . 0.369373)
+:END:
+
+*** 19.9 Policy Gradients
+:PROPERTIES:
+:NOTER_PAGE: (775 . 0.274034)
+:END:
+
+*** 19.10 Learning to Play Backgammon and Go
+:PROPERTIES:
+:NOTER_PAGE: (778 . 0.25138)
+:END:
+
+*** 19.11 Notes
+:PROPERTIES:
+:NOTER_PAGE: (779 . 0.817746)
+:END:
+
+*** 19.12 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (781 . 0.822467)
+:END:
+
+*** 19.13 References
+:PROPERTIES:
+:NOTER_PAGE: (784 . 0.729015)
+:END:
+
+** 20 Design and Analysis of Machine Learning Experiments
+:PROPERTIES:
+:NOTER_PAGE: (787 . 0.206439)
+:END:
+
+*** 20.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (787 . 0.450758)
+:END:
+
+*** 20.2 Factors, Response, and Strategy of Experimentation
+:PROPERTIES:
+:NOTER_PAGE: (792 . 0.090909)
+:END:
+
+*** 20.3 Response Surface Design
+:PROPERTIES:
+:NOTER_PAGE: (795 . 0.39678)
+:END:
+
+*** 20.4 Randomization, Replication, and Blocking
+:PROPERTIES:
+:NOTER_PAGE: (796 . 0.465909)
+:END:
+
+*** 20.5 Guidelines for Machine Learning Experiments
+:PROPERTIES:
+:NOTER_PAGE: (797 . 0.807765)
+:END:
+
+*** 20.6 Cross-Validation and Resampling Methods
+:PROPERTIES:
+:NOTER_PAGE: (802 . 0.501894)
+:END:
+
+**** 20.6.1 K-Fold Cross-Validation
+:PROPERTIES:
+:NOTER_PAGE: (803 . 0.297348)
+:END:
+
+**** 20.6.2 5 × 2 Cross-Validation
+:PROPERTIES:
+:NOTER_PAGE: (804 . 0.342803)
+:END:
+
+**** 20.6.3 Bootstrapping
+:PROPERTIES:
+:NOTER_PAGE: (805 . 0.638258)
+:END:
+
+*** 20.7 Measuring Classifier Performance
+:PROPERTIES:
+:NOTER_PAGE: (806 . 0.4375)
+:END:
+
+*** 20.8 Interval Estimation
+:PROPERTIES:
+:NOTER_PAGE: (810 . 0.256629)
+:END:
+
+*** 20.9 Hypothesis Testing
+:PROPERTIES:
+:NOTER_PAGE: (815 . 0.67803)
+:END:
+
+*** 20.10 Assessing a Classification Algorithm’s Performance
+:PROPERTIES:
+:NOTER_PAGE: (818 . 0.418561)
+:END:
+
+**** 20.10.1 Binomial Test
+:PROPERTIES:
+:NOTER_PAGE: (818 . 0.765152)
+:END:
+
+**** 20.10.2 Approximate Normal Test
+:PROPERTIES:
+:NOTER_PAGE: (819 . 0.773674)
+:END:
+
+**** 20.10.3 t Test
+:PROPERTIES:
+:NOTER_PAGE: (820 . 0.47822)
+:END:
+
+*** 20.11 Comparing Two Classification Algorithms
+:PROPERTIES:
+:NOTER_PAGE: (821 . 0.275568)
+:END:
+
+**** 20.11.1 McNemar’s Test
+:PROPERTIES:
+:NOTER_PAGE: (821 . 0.414773)
+:END:
+
+**** 20.11.2 K-Fold Cross-Validated Paired t Test
+:PROPERTIES:
+:NOTER_PAGE: (822 . 0.212121)
+:END:
+
+**** 20.11.3 5 × 2 cv Paired t Test
+:PROPERTIES:
+:NOTER_PAGE: (823 . 0.382576)
+:END:
+
+**** 20.11.4 5 × 2 cv Paired F Test
+:PROPERTIES:
+:NOTER_PAGE: (824 . 0.45928)
+:END:
+
+*** 20.12 Comparing Multiple Algorithms: Analysis of Variance
+:PROPERTIES:
+:NOTER_PAGE: (825 . 0.416667)
+:END:
+
+*** 20.13 Comparison over Multiple Datasets
+:PROPERTIES:
+:NOTER_PAGE: (831 . 0.410985)
+:END:
+
+**** 20.13.1 Comparing Two Algorithms
+:PROPERTIES:
+:NOTER_PAGE: (832 . 0.820076)
+:END:
+
+**** 20.13.2 Multiple Algorithms
+:PROPERTIES:
+:NOTER_PAGE: (835 . 0.562502)
+:END:
+
+*** 20.14 Multivariate Tests
+:PROPERTIES:
+:NOTER_PAGE: (836 . 0.82197)
+:END:
+
+**** 20.14.1 Comparing Two Algorithms
+:PROPERTIES:
+:NOTER_PAGE: (837 . 0.570076)
+:END:
+
+**** 20.14.2 Comparing Multiple Algorithms
+:PROPERTIES:
+:NOTER_PAGE: (839 . 0.335227)
+:END:
+
+*** 20.15 Notes
+:PROPERTIES:
+:NOTER_PAGE: (840 . 0.558712)
+:END:
+
+*** 20.16 Exercises
+:PROPERTIES:
+:NOTER_PAGE: (842 . 0.36553)
+:END:
+
+*** 20.17 References
+:PROPERTIES:
+:NOTER_PAGE: (844 . 0.559659)
+:END:
+
+** A Probability
+:PROPERTIES:
+:NOTER_PAGE: (846 . 0.206439)
+:END:
+
+*** A.1 Elements of Probability
+:PROPERTIES:
+:NOTER_PAGE: (846 . 0.394886)
+:END:
+
+**** A.1.1 Axioms of Probability
+:PROPERTIES:
+:NOTER_PAGE: (847 . 0.183712)
+:END:
+
+**** A.1.2 Conditional Probability
+:PROPERTIES:
+:NOTER_PAGE: (848 . 0.090909)
+:END:
+
+*** A.2 Random Variables
+:PROPERTIES:
+:NOTER_PAGE: (849 . 0.090909)
+:END:
+
+**** A.2.1 Probability Distribution and Density Functions
+:PROPERTIES:
+:NOTER_PAGE: (849 . 0.20644)
+:END:
+
+**** A.2.2 Joint Distribution and Density Functions
+:PROPERTIES:
+:NOTER_PAGE: (849 . 0.691288)
+:END:
+
+**** A.2.3 Conditional Distributions
+:PROPERTIES:
+:NOTER_PAGE: (850 . 0.542614)
+:END:
+
+**** A.2.4 Bayes’ Rule
+:PROPERTIES:
+:NOTER_PAGE: (850 . 0.692235)
+:END:
+
+**** A.2.5 Expectation
+:PROPERTIES:
+:NOTER_PAGE: (851 . 0.600379)
+:END:
+
+**** A.2.6 Variance
+:PROPERTIES:
+:NOTER_PAGE: (852 . 0.426137)
+:END:
+
+**** A.2.7 Weak Law of Large Numbers
+:PROPERTIES:
+:NOTER_PAGE: (853 . 0.669508)
+:END:
+
+*** A.3 Special Random Variables
+:PROPERTIES:
+:NOTER_PAGE: (854 . 0.160985)
+:END:
+
+**** A.3.1 Bernoulli Distribution
+:PROPERTIES:
+:NOTER_PAGE: (854 . 0.277462)
+:END:
+
+**** A.3.2 Binomial Distribution
+:PROPERTIES:
+:NOTER_PAGE: (854 . 0.651515)
+:END:
+
+**** A.3.3 Multinomial Distribution
+:PROPERTIES:
+:NOTER_PAGE: (855 . 0.138258)
+:END:
+
+**** A.3.4 Uniform Distribution
+:PROPERTIES:
+:NOTER_PAGE: (855 . 0.60322)
+:END:
+
+**** A.3.5 Normal (Gaussian) Distribution
+:PROPERTIES:
+:NOTER_PAGE: (856 . 0.52178)
+:END:
+
+**** A.3.6 Chi-Square Distribution
+:PROPERTIES:
+:NOTER_PAGE: (858 . 0.090909)
+:END:
+
+**** A.3.7 t Distribution
+:PROPERTIES:
+:NOTER_PAGE: (858 . 0.541667)
+:END:
+
+**** A.3.8 F Distribution
+:PROPERTIES:
+:NOTER_PAGE: (859 . 0.090909)
+:END:
+
+*** A.4 References
+:PROPERTIES:
+:NOTER_PAGE: (859 . 0.357955)
+:END:
+
+** B Linear Algebra
+:PROPERTIES:
+:NOTER_PAGE: (860 . 0.206439)
+:END:
+
+*** B.1 Vectors
+:PROPERTIES:
+:NOTER_PAGE: (860 . 0.394886)
+:END:
+
+*** B.2 Matrices
+:PROPERTIES:
+:NOTER_PAGE: (862 . 0.538826)
+:END:
+
+*** B.3 Similarity of Vectors
+:PROPERTIES:
+:NOTER_PAGE: (864 . 0.090909)
+:END:
+
+*** B.4 Square Matrices
+:PROPERTIES:
+:NOTER_PAGE: (864 . 0.827652)
+:END:
+
+*** B.5 Linear Dependence and Ranks
+:PROPERTIES:
+:NOTER_PAGE: (865 . 0.664773)
+:END:
+
+*** B.6 Inverses
+:PROPERTIES:
+:NOTER_PAGE: (866 . 0.251894)
+:END:
+
+*** B.7 Positive Definite Matrices
+:PROPERTIES:
+:NOTER_PAGE: (866 . 0.653409)
+:END:
+
+*** B.8 Trace and Determinant
+:PROPERTIES:
+:NOTER_PAGE: (867 . 0.317235)
+:END:
+
+*** B.9 Eigenvalues and Eigenvectors
+:PROPERTIES:
+:NOTER_PAGE: (868 . 0.325758)
+:END:
+
+*** B.10 Spectral Decomposition
+:PROPERTIES:
+:NOTER_PAGE: (869 . 0.090909)
+:END:
+
+*** B.11 Singular Value Decomposition
+:PROPERTIES:
+:NOTER_PAGE: (869 . 0.675189)
+:END:
+
+*** B.12 References
+:PROPERTIES:
+:NOTER_PAGE: (870 . 0.508523)
+:END:
+
+** C Optimization
+:PROPERTIES:
+:NOTER_PAGE: (871 . 0.206439)
+:END:
+
+*** C.1 Introduction
+:PROPERTIES:
+:NOTER_PAGE: (871 . 0.394886)
+:END:
+
+*** C.2 Linear Optimization
+:PROPERTIES:
+:NOTER_PAGE: (873 . 0.547348)
+:END:
+
+*** C.3 Convex Optimization
+:PROPERTIES:
+:NOTER_PAGE: (874 . 0.347538)
+:END:
+
+*** C.4 Duality
+:PROPERTIES:
+:NOTER_PAGE: (875 . 0.842803)
+:END:
+
+*** C.5 Local Optimization
+:PROPERTIES:
+:NOTER_PAGE: (877 . 0.799243)
+:END:
+
+*** C.6 References
+:PROPERTIES:
+:NOTER_PAGE: (879 . 0.515152)
+:END:
+
+** Index
+:PROPERTIES:
+:NOTER_PAGE: (880 . 0.206439)
+:END:
+
+
+* Skeleton
+:PROPERTIES:
+:NOTER_DOCUMENT: ../Introduction to Machine Learning 4ed 2020 - Alpaydin Ethem.pdf
+:NOTER_PAGE: 34
+:END:
