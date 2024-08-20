@@ -7,5 +7,3 @@ tmp/
 *.egg
 build
 htmlcov
-
-.envrc
